@@ -57,6 +57,7 @@ struct StockSelectView: View {
                         
                     }
                 }
+                .padding()
                 .navigationTitle("종목 선택하기")
                 .navigationBarTitleDisplayMode(.inline)
             }

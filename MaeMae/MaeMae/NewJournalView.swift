@@ -58,7 +58,7 @@ struct NewJournalView: View {
     }
     
     func createNewJournal() {
-        let newJournal = Journal(title: title, contents: contents)
+        let newJournal = Journal(title: title, contents: contents, copiedStockTitle: stock.title)
         newJournal.stock = stock
         modelContext.insert(newJournal)
         dismiss()

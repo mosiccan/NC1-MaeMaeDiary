@@ -31,7 +31,7 @@ struct EditJournalView: View {
             }
             
         }
-        .navigationTitle("\(journal.stock?.title ?? "종목명 못가져옴")")
+        .navigationTitle("\(journal.stock?.title ?? journal.copiedStockTitle)")
         .toolbar {
             if changed {
                 Button("완료"){

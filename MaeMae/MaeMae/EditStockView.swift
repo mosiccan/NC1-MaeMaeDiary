@@ -25,7 +25,7 @@ struct EditStockView: View {
     var body: some View {
         
         Form {
-            Section(header: Text("매매 계획")) {
+            Section(header: Text("종목명")) {
                 TextField("종목", text: $title)
             }
             
@@ -117,6 +117,7 @@ struct EditStockView: View {
                     }
                 }
             }
+            
             
         }
         .toolbar {

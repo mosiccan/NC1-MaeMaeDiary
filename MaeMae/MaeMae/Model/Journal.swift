@@ -15,11 +15,13 @@ class Journal {
     var category: String?
     var contents: String
     
+    var copiedStockTitle: String
     
-    init(title: String, category: String? = nil, contents: String) {
+    init(title: String, category: String? = nil, contents: String, copiedStockTitle: String) {
         self.title = title
         self.category = category
         self.contents = contents
+        self.copiedStockTitle = copiedStockTitle
     }
     
     var stock: Stock?

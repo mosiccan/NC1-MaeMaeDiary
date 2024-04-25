@@ -82,17 +82,20 @@ struct NewStockView: View {
                 }
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
-                        Button("취소") {
+                        Button("취소", role: .destructive) {
                             dismiss()
                         }
+                        .foregroundStyle(.red)
                     }
-                    ToolbarItem(placement: .topBarTrailing) {
-                        Button("완료") {
-                            createNewStock()
+                    if !title.isEmpty {
+                            ToolbarItem(placement: .topBarTrailing) {
+                                Button("완료") {
+                                    createNewStock()
+                                }
+                                .bold()
+                                .foregroundStyle(.blue)
+                            }
                         }
-                        .bold()
-                        .disabled(title.isEmpty)
-                    }
                 }
             }
             .navigationTitle("새 종목")

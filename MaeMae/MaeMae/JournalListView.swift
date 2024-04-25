@@ -10,20 +10,23 @@ import SwiftData
 
 struct JournalListView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query(sort: \Journal.creationDate) private var journals: [Journal]
+    @Query(sort: \Journal.creationDate, order: .reverse) private var journals: [Journal]
     @State private var createNewJournal = false
     var body: some View {
         NavigationStack {
+            if journals.isEmpty {
+                ContentUnavailableView("일지를 작성해 보아요!", systemImage: "pencil")
+                    .foregroundStyle(.secondary)
+            }
             ZStack {
                 ScrollView {
                     LazyVStack(spacing: 20) {
                         ForEach(journals) { journal in
-                            // journal list를 보여줘야함
                             NavigationLink(destination: EditJournalView(journal: journal)){
                                 
                                 VStack(alignment: .leading, spacing: 10) {
                                     HStack {
-                                        Text(journal.stock?.title ?? "삭제된 종목")
+                                        Text(journal.stock?.title ?? journal.copiedStockTitle)
                                             .font(.title2)
                                         Text(formattedDate(date: journal.creationDate))
                                         Spacer()
