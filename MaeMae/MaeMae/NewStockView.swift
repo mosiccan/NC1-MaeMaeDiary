@@ -22,6 +22,10 @@ struct NewStockView: View {
     @State private var targetBuyPrice: Int = 0
     @State private var targetSellPrice: Int = 0
     
+    @State private var profits: Int = 0
+    @State private var profitRate: Double = 0.0
+    
+    
     var body: some View {
         NavigationStack {
             Form {
@@ -70,7 +74,7 @@ struct NewStockView: View {
                 HStack {
                     Text("목표 합산")
                     Spacer()
-                    Text("이익 0, 이익률 0%")
+                    Text("이익 \(calculateProfit()), 이익률 \(String(format: "%.2f", calculateProfitRate()))%")
                         .foregroundStyle(.secondary)
                 }
                 HStack {
@@ -118,6 +122,19 @@ struct NewStockView: View {
         context.insert(newStock)
         dismiss()
     }
+    
+    func calculateProfit() -> Int {
+        return (targetSellPrice - targetBuyPrice) * targetStocksCount
+    }
+
+    func calculateProfitRate() -> Double {
+        guard targetBuyPrice != 0 else {
+            return 0.0 // 분모가 0일 경우 처리
+        }
+        
+        return Double(targetSellPrice - targetBuyPrice) / Double(targetBuyPrice) * 100.0
+    }
+
 }
 
 #Preview {

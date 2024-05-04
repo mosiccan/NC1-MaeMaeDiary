@@ -21,7 +21,9 @@ class Stock {
     var targetBuyPrice: Int? // 목표 매수가
     var targetSellPrice: Int? // 목표 매도가
     var targetStocksCount: Int? // 매수 예정 수
-    //안녕하세요. 저는 하래입니다. 이것은 아마 원의 노트북.. 인 것 같아 애ㅗ냐면 매수 매도 이러는건 원뿐이야...
+    
+    var profits: Int? // 이익
+    var profitRate: Double? // 이익률
     
     @Relationship(inverse: \Journal.stock) var jornals: [Journal]?
     
@@ -36,7 +38,10 @@ class Stock {
         
         targetBuyPrice: Int? = nil,
         targetSellPrice: Int? = nil,
-        targetStocksCount: Int? = nil
+        targetStocksCount: Int? = nil,
+        
+        profits: Int? = nil,
+        profitRate: Double? = nil
         
     ) {
         self.title = title
@@ -50,6 +55,9 @@ class Stock {
         self.targetBuyPrice = targetBuyPrice
         self.targetSellPrice = targetSellPrice
         self.targetStocksCount = targetStocksCount
+        
+        self.profits = profits
+        self.profitRate = profitRate
         
     }
     
