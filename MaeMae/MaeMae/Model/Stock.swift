@@ -30,7 +30,7 @@ class Stock {
         summary: String = "",
         status: Status = .onShelf,
     
-        dateAdded: Date = Date.now ,
+        dateAdded: Date = Date.now,
         dateStarted: Date = Date.distantPast,
         dateCompleted: Date = Date.distantPast,
         

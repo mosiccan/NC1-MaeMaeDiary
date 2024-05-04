@@ -55,12 +55,12 @@ struct NewStockView: View {
                 
                 GroupBox {
                     LabeledContent {
-                        DatePicker("", selection: $dateStarted, in: dateAdded..., displayedComponents: .date )
+                        DatePicker("", selection: $dateStarted, displayedComponents: .date )
                     } label: {
                         Text("매매 시작")
                     }
                     LabeledContent {
-                        DatePicker("", selection: $dateCompleted, in: dateAdded..., displayedComponents: .date )
+                        DatePicker("", selection: $dateCompleted, in: dateAdded..., displayedComponents: .date)
                     } label: {
                         Text("매매 종료")
                     }
@@ -100,7 +100,6 @@ struct NewStockView: View {
             }
             .navigationTitle("새 종목")
             .navigationBarTitleDisplayMode(.inline)
-            
             
         }
     }
