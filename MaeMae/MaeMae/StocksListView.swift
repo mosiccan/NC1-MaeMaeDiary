@@ -94,7 +94,6 @@ struct StocksListView: View {
                     }
                     .padding()
                 }
-                .listStyle(.plain)
                 .navigationTitle("내 종목")
                 
                 VStack {
